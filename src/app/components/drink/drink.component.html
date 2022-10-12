@@ -1,0 +1,43 @@
+<div class="container-sm">
+    <div class="d-flex justify-content-center">
+        <h2> <i>Drinks</i> </h2>
+    </div>
+    <div class="d-flex justify-content-around">.
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
+            type="text" name="drinkName" [(ngModel)]="drinkName" (input)="onInput()">
+        <datalist id="datalistOptions">
+            <option value="Tequila">
+            <option value="Vodka">
+            <option value="Margarita">
+        </datalist>
+    </div>
+</div>
+
+
+<br>{{drink$ | async}}
+<hr>
+
+<div class="container text-center">
+    <div class="row row-cols-3">
+        <div class="col card-margin" *ngFor="let drink of drinksTArray">
+            
+            <div class="card">
+                <img [src]="drink.img" class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <h3 class="card-title">{{drink.name}}</h3>
+                    <h5>Ingredientes:</h5>
+                </div>
+
+                <ul class="list-group list-group-flush" *ngFor="let ingredient of drink.ingredients">
+                    <li class="list-group-item">{{ingredient}}</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
