@@ -12,14 +12,14 @@ export class DrinkComponent implements OnInit {
 
   public drink$!: Observable<any>;
   public drinkName: string = 'margarita';
-  public drinksTArray?: any[]= [];  
+  // public drinksTArray?: any[]= [];  
 
   constructor(private apiService: ApiServiceService) {
     this.drink$ = apiService.searchDrink('margarita').pipe(
       // tap(console.log),
       map( (respT: any)  =>{
-        this.drinksTArray = Transform.transformDrink(respT.drinks)
-        return respT.drinks;
+        // this.drinksTArray = Transform.transformDrink(respT.drinks)
+        return Transform.transformDrink(respT.drinks);
       }),
     )
   }
@@ -34,9 +34,9 @@ export class DrinkComponent implements OnInit {
       // })
       // ,
       map( (respT: any)  =>{
-        this.drinksTArray = Transform.transformDrink(respT.drinks)
-        console.log("this.drinksTArray", this.drinksTArray)
-        return respT.drinks;
+        // this.drinksTArray = Transform.transformDrink(respT.drinks)
+        // console.log("this.drinksTArray", this.drinksTArray)
+        return Transform.transformDrink(respT.drinks);
       })
       // ,
       //  tap( (resp) =>{
